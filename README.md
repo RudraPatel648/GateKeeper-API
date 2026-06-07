@@ -27,19 +27,22 @@ GateKeeper is a JWT-based authentication system built with Node.js and Express. 
 
 ## Authentication Flow
 
-1. User submits username and password.
-2. Server validates credentials.
-3. Server generates a JWT token.
-4. Client stores the token.
-5. Client sends the token in the Authorization header.
-6. Middleware verifies the token.
-7. Protected route grants access.
+```mermaid
+flowchart TD
+    A[Login Request] --> B[Validate Credentials]
 
-Example:
+    B -->|Valid| C[Generate JWT]
+    B -->|Invalid| D[401 Unauthorized]
 
-```http
-Authorization: Bearer <your_jwt_token>
+    C --> E[Return Token]
+
+    E --> F[Protected Route]
+    F --> G[Verify JWT]
+
+    G -->|Valid| H[Access Granted]
+    G -->|Invalid| I[401 Unauthorized]
 ```
+
 
 ---
 
