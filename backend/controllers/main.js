@@ -12,11 +12,22 @@ const login = (req, res) => {
         user => (user.username === username)
     );
 
-    if (!user || user.password !== password) {
-        return res.status(401).json({
-            msg: 'Invalid credentials'
-        });
+    
+    // We want more specific error , leave this for this moment
+    // if (!user || user.password !== password) {
+    //     return res.status(401).json({
+    //         msg: 'Invalid credentials'
+    //     });
+    // }
+
+    if(!user){
+        return res.status(401).json({msg : 'User not Found'});
     }
+    if(user.password !== password){
+        return res.status(401).json({msg : 'Invalid Password'});
+    }
+
+    //----------------------------------------------------------
 
     const token = jwt.sign({ username }, process.env.JWT_SECRET, {
         expiresIn: '30d',
@@ -26,7 +37,7 @@ const login = (req, res) => {
 }
 
 const access = (req , res) =>{
-    const data = {msg : `Authorized Access for ${req.user.username}`}
+    const data = {msg : `Authorized Access user_${req.user.username}`}
     res.status(200).json(data)
 }
 

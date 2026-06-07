@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gatekeeper</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: "Courier New", monospace;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .heading {
+            font-size: 48px;
+            font-weight: bold;
+            color: #58a6ff;
+            margin-bottom: 10px;
+            letter-spacing: 4px;
+        }
+
+        .subheading {
+            font-size: 14px;
+            color: #8b949e;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        .login-box {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 30px;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 16px;
+            color: #58a6ff;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 12px;
+            color: #8b949e;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            color: #c9d1d9;
+            font-family: "Courier New", monospace;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #58a6ff;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: #238636;
+            color: white;
+            border: none;
+            font-family: "Courier New", monospace;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .logout-btn {
+            padding: 12px 40px;
+            background-color: #21262d;
+            color: #f85149;
+            border: 1px solid #f85149;
+            font-family: "Courier New", monospace;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+
+        .console-box {
+            background-color: #010409;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            width: 100%;
+            max-width: 600px;
+            overflow: hidden;
+        }
+
+        .console-header {
+            background-color: #161b22;
+            padding: 10px 15px;
+            border-bottom: 1px solid #30363d;
+            font-size: 12px;
+            color: #8b949e;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .green-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #3fb950;
+            display: inline-block;
+        }
+
+        .console-output {
+            padding: 20px;
+            font-size: 13px;
+            color: #3fb950;
+            min-height: 200px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="heading">GATEKEEPER</h1>
+    <p class="subheading">// secure authentication system</p>
+
+    <div class="login-box">
+        <h2 class="title">Login</h2>
+
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username">
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
+        </div>
+
+        <button type="button" class="submit-btn">Submit</button>
+    </div>
+
+    <button type="button" class="logout-btn">Logout</button>
+
+    <div class="console-box">
+        <div class="console-header">
+            <span class="green-dot"></span>
+            <span>Console Output</span>
+        </div>
+        <div class="console-output" id="console-output">$ awaiting input...</div>
+    </div>
+
+</body>
+</html>
